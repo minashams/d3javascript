@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>D3 Demo: Linear scales</title>
+	<script src="https://d3js.org/d3.v4.js"></script>
+	</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var global_list = [];
+var global_string = '';
+
+function load_the_table_into_dict(){
+	//in here you should read the table and load it into dictionary
+	//dictionary is global scope
+	//d3.tsvParseRows("./small.csv");
+	
+	console.log("I am here");
+	d3.tsv("./small.csv", function (data){
+		//data is an object
+		var counter = 1;
+		data.forEach(function(d){
+			counter += 1;
+			if (counter > 100) {return };
+			global_list.push(d3.values(d));
+		});
+		/*
+		
+		row_count = d3.keys(data);
+
+		global_list = d3.values(data);
+		console.log(global_list);
+		*/
+		
+			//console.log(data);
+/*
+			data.forEach(function(d){
+				d.forEach(keys(d)){
+					console.log()
+				}
+			table_header = keys(d)
+			table_values = values(d)
+
+
+	});
+	*/
+			/*
+			console.log(d3.values(global_dict[0]))
+		global_dict.forEach (function(d){
+			console.log(d3.values(d))
+
+	});
+
+*/
+
+});
+	console.log(global_list);
+
+};
+
+
+function biomuta(){
+	console.log(global_list);
+	//read the dict into table
+}
+//var biomuta = [];
+load_the_table_into_dict();
+biomuta();
+
+
+
+</script>
+</html>
